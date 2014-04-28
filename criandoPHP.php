@@ -2,7 +2,8 @@
 	echo '<h3 align="center>Criando Classes"</h3>';
 	
 	$nome = $_POST['nome'];
-		
+	retuioertu
+    $bteste = "";
 	$cursos = $_POST['cursos'];
 	$chaves = $_POST['chaves'];
 	#$descricao = $_POST['descricao'];
