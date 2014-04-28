@@ -1,9 +1,7 @@
 <? if(! defined('BASEPATH')) die();
 	class Servicos extends MY_Controller{
 
-		protected $_like_column = "serv_nome";
-		protected $_controller_name = "servicos";
-
+		
 		public function __construct()
 		{
 			parent::__construct();
