@@ -1,0 +1,138 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>miniDrodown - jQuery Plugin</title>
+  <link rel="stylesheet" href="css/site.css">
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div id="container">
+      <header>
+    <h1>
+      <strong>miniDropdown demo</strong> - jQuery Plugin
+    </h1>
+  </header>
+
+    <h2>Default</h2>
+    <nav id="mini-dropdown-1">
+      <ul class="dropdown">
+       <li>
+        <a href="#">Home</a>
+        <ul>
+          <li><a href="#">Generic</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">About</a>
+        <ul>
+          <li><a href="#">Another</a></li>
+          <li><a href="#">Generic</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Another</a>
+        <ul>
+          <li><a href="#">Generic</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Generic</a></li>
+      <li><a href="#">Menu</a></li>
+    </ul>
+  </nav>
+
+  <h2>Animation</h2>
+  <nav id="mini-dropdown-2">
+    <ul class="dropdown">
+      <li>
+        <a href="#">Home</a>
+        <ul>
+          <li><a href="#">Generic</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">About</a>
+        <ul>
+          <li><a href="#">Another</a></li>
+          <li><a href="#">Generic</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Another</a></li>
+      <li><a href="#">Generic</a></li>
+      <li><a href="#">Menu</a></li>
+    </ul>
+  </nav>
+
+  <h2>Custom Animation</h2>
+  <nav id="mini-dropdown-3">
+    <ul class="dropdown">
+      <li>
+        <a href="#">Home</a>
+        <ul>
+          <li><a href="#">Generic</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">About</a>
+        <ul>
+          <li><a href="#">Another</a></li>
+          <li><a href="#">Generic</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Item</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Another</a></li>
+      <li><a href="#">Generic</a></li>
+      <li><a href="#">Menu</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/miniDropdown.js"></script>
+<script>
+$(function(){
+    // Basic example
+    $('#mini-dropdown-1 .dropdown').miniDropdown();
+
+    // Built in animation
+    $('#mini-dropdown-2 .dropdown').miniDropdown({
+      animation: 'slide', 
+      show: 100,
+      hide: 100,
+      delayIn: 100,
+      delayOut: 100
+    });
+
+    // Custom animations
+    $('#mini-dropdown-3 .dropdown').miniDropdown({
+      showFunction: function(item, subnav) {
+        subnav.css({right: 0, opacity: 0}).show();
+        subnav.animate({right: $(window).width() - item.offset().left - item.width() , opacity: 1}, 200)
+      },
+      hideFunction: function(item, subnav) {
+        subnav.animate({right:  $(window).width(), opacity: 0}, 300, function(){
+          $(this).hide();
+        })
+      }
+
+    });
+  });
+</script>
+</body>
+</html>

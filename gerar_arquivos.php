@@ -5,16 +5,8 @@
     $dir = mkdir($name);
     $mod = mkdir($name."/models");
     $control = mkdir($name."/controllers");
+    $lists = mkdir($name.'/'.$name);
 
-
-    /*$nova = substr($valor[0],0,-4). "_status";
-    if(isset($nova)){
-        echo $valor[-1]. "<---";
-    }
-    else{
-        echo $nova ."rasengan";
-    }
-    */
 /*=========================================Create file Model====================================================================*/
 
 	$model = "<? if(!defined('BASEPATH')) die();\n";
@@ -31,19 +23,19 @@
 					foreach ($valor as $val) {
 						if(strlen($val) > 9){
 							if($val == substr($val,0, -4)."_cod"){
-								$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t". '"rules" =>"trim|integer", ),' . "\n";
+								$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t". '"rules" =>"trim|integer", ),' . "\n";
 							} else{
 								if(! $val->EOF){
-									$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t".'"label" => "' . $val . '",' ."\t\t\t". '"rules" =>"trim|required", ),' . "\n";
+									$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t". '"rules" =>"trim|required", ),' . "\n";
 								} else{
-									$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t".'"label" => "' . $val . '",' ."\t\t\t". '"rules" =>"trim|required" )' . "\n";
+									$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t". '"rules" =>"trim|required" )' . "\n";
 								}
 							}
 						} else{
 							if($val == substr($val,0, -4)."_cod"){
-								$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t\t". '"rules" =>"trim|integer", ),' . "\n";
+								$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t\t\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t\t". '"rules" =>"trim|integer", ),' . "\n";
 							} else{
-								$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t\t". '"rules" =>"trim|required", ),' . "\n";
+								$model .= "\t\t\t\t\t".'array("field" => "' . $val . '",'."\t\t\t\t\t\t\t\t\t".'"label" => "' . $val . '",' ."\t\t\t\t". '"rules" =>"trim|required", ),' . "\n";
 							}
 						}
 					}
@@ -103,9 +95,9 @@
 								$controller .= "\t\t\t\t\t\t" . 'array(' . "\n";							
 								foreach($valor as $val){
 									if($val == substr($val, 0, -7)."_status"){
-										$controller .= "\t\t\t\t\t\t\t" . '"' . $val . '"' . "\t\t" . '=> "t",' . "\n";
+										$controller .= "\t\t\t\t\t\t\t" . '"' . $val . '"' . "\t\t\t\t\t\t" . '=> "t",' . "\n";
 									} else{
-										$controller .= "\t\t\t\t\t\t\t" . '"' . $val . '"' . "\t\t\t" . '=> "",' . "\n";
+										$controller .= "\t\t\t\t\t\t\t" . '"' . $val . '"' . "\t\t\t\t\t\t" . '=> "",' . "\n";
 									}
 								}
 								$controller .= "\t\t\t\t\t\t" . ')' . "\n";
@@ -129,11 +121,9 @@
 						$controller .= "\t\t\t\t\t" . '$id = $this->input->post("'. $valor[0].'");' . "\n";
 						$controller .= "\t\t\t\t\t" . '$data = array(' . "\n";
 							foreach($valor as $val){
-								if($val  == substr($val, 0, -4)."_cod"){
-									continue;
-								}
-								if($val == substr($val, 0, -5)."_nome"){
-									$controller .= "\t\t\t\t\t\t" . '"'.$val.'" => strtoupper($this->input->post(\''.$val.'\', TRUE)),' . "\n";
+
+								if($val == substr($val, 0, -5)."_nome" || $val == substr($val, 0, -10)."_descricao"){
+									$controller .= "\t\t\t\t\t\t" . '"'.$val.'" => ucwords($this->input->post(\''.$val.'\', TRUE)),' . "\n";
 								} else{
 									$controller .= "\t\t\t\t\t\t" . '"'.$val.'" => $this->input->post(\''.$val.'\', TRUE),' . "\n";
 								}
@@ -149,11 +139,68 @@
 	$controller .= "?>";
 
 	if(file_put_contents($name."/controllers/".$name.".php", $controller)){
-		echo "Arquivo Criado {$name}";
-		echo "<meta http-equiv='refresh' content='3; URL=index.php'>";
-		exit;
+		echo "Arquivo Criado {$name}\n";
 	} else{
 		echo "erro";
 	}
 /*=======================================================end Create file Controller====================================================*/
-?>
+
+/*=========================================================create file html list============================================*/
+/*HTML*/
+$html = "<!--BEGIN EXAMPLE TABLE PORTLET-->" . "\n";
+$html .= "<div class='box light-grey'>" . "\n";
+    $html .= "\t" . "<div class='portlet-body'>" . "\n";
+        $html .= "\t\t" . "<table class='table table-striped table-bordered table-hover' id='simple_2'>" . "\n";
+            $html .= "\t\t\t" . "<thead>" . "\n";
+                $html .= "\t\t\t\t" . "<tr>" . "\n";
+                    $html .= "\t\t\t\t\t" .'<th width="4%" class="table-checkbox">'."\n";
+                        $html .= "\t\t\t\t\t\t" .'<input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" />'."\n";
+                    $html .= "\t\t\t\t\t" .'</th>'."\n";
+                foreach($valor as $l)
+                {
+                    $html .= "\t\t\t\t\t" . "<th width='5%'>" . "\n";
+                    $html .= "\t\t\t\t\t\t" . "{$l}" . "\n";
+                    $html .= "\t\t\t\t\t" . "</th>" . "\n";
+                }
+                    $html .= "\t\t\t\t" . "<td width='3%'>" . "\n";
+                        $html .= "\t\t\t\t\t\t" . "Ações" . "\n";
+                    $html .= "\t\t\t\t\t" . "</td>" . "\n";
+                $html .= "\t\t\t\t" . "</tr>" . "\n";
+            $html .= "\t\t\t" . "</thead>" . "\n";
+
+            $html .= "\t\t\t" . "<tbody>" . "\n";
+                $html .= "\t\t\t\t" . "{itens}" . "\n";
+                    $html .= "\t\t\t\t\t" . "<tr>" . "\n";
+                        $html .= "\t\t\t\t\t" .'<td>'."\n";
+                            $html .= "\t\t\t\t\t\t" .'<input type="checkbox" class="checkboxes" value="1" />'."\n";
+                        $html .= "\t\t\t\t\t" .'</td>'."\n";
+                        foreach($valor as $l)
+                        {
+                            $html .= "\t\t\t\t\t\t" . "<td>" . "\n";
+                            $html .= "\t\t\t\t\t\t\t" . "{{$l}}" . "\n";
+                            $html .= "\t\t\t\t\t\t" . "</td>" . "\n";
+                        }
+                            $html .= "\t\t\t\t\t\t" . "<td>" . "\n";
+                            $html .= "\t\t\t\t\t\t\t" . "<button data-id='{{$list[0]}}' data-find='{find}' class='form-edit btn btn-link btn-xs' type='button'>" . "\n";
+                                $html .= "\t\t\t\t\t\t\t\tAlterar \n";
+                            $html .= "\t\t\t\t\t\t\t" . "</button>" . "\n";
+                            $html .= "\t\t\t\t\t\t\t" . "<button data-id='{{$list[0]}}' data-find='{find}' class='form-delete brn btn-link btn-xs' type='button'>" . "\n";
+                                $html .= "\t\t\t\t\t\t\t\t" . "Excluir" . "\n";
+                            $html .= "\t\t\t\t\t\t\t" . "</button>" . "\n";
+                        $html .= "\t\t\t\t\t\t" . "</td>" . "\n";
+                    $html .= "\t\t\t\t\t" . "</tr>" . "\n";
+                $html .= "\t\t\t\t\t" . "{/itens}" . "\n";
+            $html .= "\t\t\t" . "</tbody>" . "\n";
+        $html .= "\t\t" . "</table>" . "\n";
+        $html .= "\t\t" . "<!-- /.modal -->" . "\n";
+    $html .= "\t" . "</div>" . "\n";
+$html .= "</div>" . "\n";
+if(file_put_contents($name.'/'.$name."/lista.php", $html)){
+    echo "Arquivo Criado ".$name."<br>";
+    echo "<meta http-equiv='refresh' content='3; URL=index.php'>";
+    exit;
+}else{
+    echo "erro".$lis_sav;
+}
+/*HTML*/
+/*=========================================================end create file html list============================================*/

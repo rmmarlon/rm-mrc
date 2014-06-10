@@ -2,9 +2,7 @@
 	class Servicos extends MY_Controller{
 
 		protected $_like_column = "{like_column}";
-		<?php if(isset($controller_name)):?>
 		protected $_controller_name = "{controller_name}";
-		<?php endif;?>
 		public function __construct()
 		{
 			parent::__construct();
