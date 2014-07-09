@@ -455,3 +455,5 @@ return substr($novo_valor,0,1);
 echo aleatorio();
 */
 ?>
+nshgttb = <A1g&-r6i2K3
+INITCAP('field') = function SQL to recovery data in Capitaliza.
