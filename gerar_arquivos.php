@@ -1,4 +1,17 @@
-<?
+<?php
+
+$saldo_inicial = $_POST['saldo_inicial'];
+    if(strpos($saldo_inicial,".") || strpos($saldo_inicial,",")){
+        $saldo_inicial = str_replace([",","."],"", $saldo_inicial);
+
+        $saldo_inicial = intval($saldo_inicial) / 100;
+    }
+    else
+    {
+        $saldo_inicial = intval($saldo_inicial);
+    }
+echo $saldo_inicial."-----";
+exit;
 	$name = $_POST['name'];
 	$valor = $_POST['field'];
 	$campo = array('primary_key','primary_filter');

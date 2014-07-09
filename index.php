@@ -4,11 +4,11 @@
 	}
 	if(!isset($_POST['field'])){
 		$_POST['field'] = NULL;
-	}
+	}´
 ?>
 
 <?
-    /*select com a funcao initcap() que funciona == a funcção php ucwords
+    /*select com a funsdtgertcao initcap() que funciona == a funcção php ucwords
     SELECT INITCAP("pais_nome")
     from nfe_pais
     se for em aspas simples ele imprime o valor(no caso pais_nome)
@@ -20,7 +20,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>
-			Criar arquivos
+			Criar arquivosdsfsdfsd
 		</title>
         <link rel="stylesheet" href="miniDropdown-js/css/site.css">
         <!--[if IE]>
@@ -84,8 +84,36 @@
                 var result = String.fromCharCode(Math.floor(Math.random()*(ascii[i][1]-ascii[i][0]))+ascii[i][0]);
                 $("#senha").val(result);
                 //alert(ascii.substr(i,1));
-
+				$("#veic_status").click(function(){
+					if($(this).parent().find('div'))
+					{
+						//var es = $(this).parent().parent().siblings().text();
+						alert('es');
+					}else{
+						var es = $(this).parent().siblings().text();
+						alert(es);
+					}
+					//var valor = $(this).parent().parent().siblings().text();
+				});
+				$("#upp").keyup(function(){
+					this.value = this.value.toLowerCase();
+						
+				});
+				$("#btnNumbers").click(function()
+				{
+					var decimal=0;
+					var objeto = $("#numbers").val();
+					for(var i=0;i<objeto.length;i++)
+					{
+						//alert(objeto.substr(i,1));
+						if(objeto.substr(i,1)==",")
+						{
+							alert(decimal = i);
+						}
+					}
+				});
             });
+
         </script>
         <style>
             th
@@ -245,10 +273,29 @@
     </script-->
 		<section>
 			<header>
-				Crair arquivos
+				<strong>Crair arquivos</strong>
 			</header>
+			<?
+				$mesIni = 07;
+				$anoIni = 2014;
+				$mes = date("m", mktime(0, 0, 0, $mesIni - $i, 28, $anoIni));
+                $ano = date("Y", mktime(0, 0, 0, $mesIni - $i, 28, $anoIni));
+				
+				
+				$dataInicialLoop = date("Y-m-t", mktime(0, 0, 0, $mes, 1, $ano));
+                $dataFinalLoop = $ano."-".$mes."-1";
+										
+				echo "MES :".$mes." ANO :".$ano." DATA INI :".$dataInicialLoop." DATA FIN :".$dataFinalLoop;
+			?>
+			<div>
+				<header>UPPER</header>
+				<input type="text" id="upp">
+				
+			</div>
 			<article>
 				<form method="post" action="gerar_arquivos.php">
+					<input type="text" name="saldo_inicial" id="numbers" onkeypress="javascript: return FloatValidate(this.value, true, event);">
+					<input type="button" value="testar" id="btnNumbers">
 					<p>
 						<input type="text" name="name" id="repla">
 					</p>
@@ -353,12 +400,44 @@
                                     </tr>
                             <?
                                 }
+															
+							$pizza  = "piece1_piece2-piece3 piece4 piece5-piece6";
+							$pieces = explode('-', $pizza);
+							var_dump($pieces);
+							
+                            $num=str_replace(".","",'80.000');
+                            intval($num);
+                            //echo gettype($num);
+							$str = "A 'quote' is <b>bold</b>";
+
+							// Outputs: A 'quote' is &lt;b&gt;bold&lt;/b&gt;
+							echo htmlentities($str);
+
+							// Outputs: A &#039;quote&#039; is &lt;b&gt;bold&lt;/b&gt;
+							echo htmlentities($str, ENT_QUOTES);
+							echo strtoupper("produzida e instanciada pela class SelectQuery");
                             ?>
 
                         </tbody>
                     </table>
                 </div>
 			</article>
+			<table>
+				<tr>
+					<td class="text">
+						<span class="obrigatorio">*</span>Status:
+					</td>
+					<td>
+						
+							<select onblur="javascript: this.className = 'selectOnblur';" onfocus="javascript: this.className = 'selectOnfocus';" class="selectOnblur" name="veic_status" id="veic_status">
+								<option value="">----Selecione----</option>
+								<option value="1">NOVO</option>
+								<option value="2">USADO</option>
+							</select>
+						
+					</td>
+                </tr>
+			</table>
 		</section>
 
     </body>
