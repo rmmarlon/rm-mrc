@@ -1,0 +1,627 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+	CONFIGURAÇÕES GERAIS
+*/
+@media only screen and (max-width: 639px){
+	body{
+		background-color:#FFF;
+		font-size:16px;
+	}
+}
+
+@media only screen and (min-width: 640px){
+	body{
+		background-color:#FFF;
+		font-size:17px;
+	}
+}
+
+@media only screen and (min-width: 1024px){
+	body{
+		background-color:#FFF;
+		font-size:18px;
+	}
+}
+
+@media only screen and (min-width: 1390px){
+	body{
+		background-color:#FFF;
+		font-size:20px;
+	}
+}
+input[type=button]{
+	border:1px solid #999;
+	border-radius:3px;
+}
+.alertaVermelho{
+	font-weight:bold;
+	color:#F00;
+}
+.marginAuto{
+	margin:auto;
+}
+.dados{
+	width:40%;
+	border-radius:10px;
+	margin:4% auto;
+	padding-left:2%;
+	background: -webkit-radial-gradient(top right, #e0e0e0, #dfdfdf, #afafaf);
+	background: -moz-radial-gradient(top right, #e0e0e0, #dfdfdf, #afafaf);
+	background: -ms-radial-gradient(top right, #e0e0e0, #dfdfdf, #afafaf);
+	border:1px inset #cdcfce;
+}
+.dadosB{
+	width:40%;
+	border-radius:10px;
+	margin:4% auto;
+	padding-left:2%;
+	background: -webkit-radial-gradient(top right, #e0e0e0, #dfdfdf, #afafaf);
+	background: -moz-radial-gradient(top right, #e0e0e0, #dfdfdf, #afafaf);
+	background: -ms-radial-gradient(top right, #e0e0e0, #dfdfdf, #afafaf);
+	border:1px inset #cdcfce;
+}
+.readOnly{
+	background-color:#EEE;
+	border:hidden;
+	text-align:center;	
+}
+.audio_alerta{
+	display:none;
+}
+#alerta{
+	color:#BBB;	
+}
+fieldset{
+	border-radius: 10px;
+	border:none;
+	opacity:0.9;
+}
+.alinhaCentro{
+	text-align:center;	
+}
+.alinhaDireita{
+	text-align:right;	
+}
+.cabecalhoForm{
+	background-color:#EEE;
+	line-height:30px;
+	text-align:center;
+}
+.clear{
+	clear:both;	
+}
+
+img{
+	border:0;	
+}
+legend{
+	font-family:Calibri;
+	font-size:0.83em;
+	color:#234725;
+}
+caption{
+	font-family:Calibri;
+	font-size:0.7em;
+	color:#234725;
+}
+form{
+	margin:0;
+	padding:0;
+	font-family:Calibri;
+	font-size:0.875em;
+	color:#234725;
+}
+input, select{
+	border:1px solid #CCC;
+	font-family:Calibri;
+	font-size:1em;
+}
+.borderNone{
+	border:none;	
+}
+h1{
+	font-family:Calibri;
+	color:#363;
+	text-align:center;
+	margin:0px;
+	font-size:1.33333em;
+}
+
+h2{
+	font-family:Calibri;
+	color:#234725;
+	padding-left:1em;
+	margin:0px;
+}
+
+h3{
+	font-family:Calibri;
+	color:#234725;
+	padding-left:0.94em;
+	margin:0px;
+}
+
+h4{
+	font-family:Calibri;
+	color:#000;
+	padding-left:5px;
+}
+
+h5{
+	font-family:Calibri;
+	color:#234725;
+	padding-left:5px;
+}
+
+.error{
+	background-color:#ff9797;	
+}
+.automatico{
+	background-color:#CCC;
+	border:1px solid #000;
+}
+.disabled{
+	background-color:#EEE;
+	border:hidden;
+	text-align:center;	
+}
+div.error{
+	background-color:#FFF;
+}
+.labelForm{
+	text-align: right;
+	margin-right: 0.5em;
+	width:10em;
+	float:left;
+	font-weight:bold;
+}
+.labelFormMedio{
+	text-align: right;
+	margin-right: 0.5em;
+	width:8em;
+	float:left;
+	font-weight:bold;
+}
+.labelFormMenor{
+	text-align: right;
+	margin-right: 0.5em;
+	width:5em;
+	/*width:80px !important;*/
+	float:left;
+	color:#000;
+	font-weight:bold;
+}
+.dados300FundoBranco{
+	width: 300px;
+	float: left;
+	background-color:#FFF;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+}
+.floatLeft120{
+	width:120px;
+	float:left;
+	text-align:left;
+	font-family:Calibri;
+	color:#234725;
+}
+.floatLeft100TextoDireita{
+	width:100px;
+	float:left;
+	text-align:right;
+	padding-right:10px;
+	font-family:Calibri;
+	color:#234725;
+}
+.fonte13Vermelha{
+	font-size:13px;
+	color:#F00;	
+}
+.fonte13Marrom{
+	font-size:13px;
+	color:#630;	
+}
+.floatLeft150{
+	float:left;
+	width:150px;
+	color:#234725;
+	font-family:Calibri;
+}
+
+.titulo{
+	background-color:#CCC;
+	font-weight:bold;	
+}
+
+.tituloB{
+	background-color:#DDD;
+	font-weight:bold;	
+}
+.tituloC{
+	background-color:#EEE;
+	font-weight:bold;	
+}
+/*
+	FIM CONFIGURAÇÕES GERAIS
+*/
+/*
+	FUNÇÕES CSS DA MODAL
+*/
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+  height:100%;
+}
+
+#maskB {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9005;
+  background-color:#000;
+  display:none;
+  height:100%;
+}
+
+.window {
+   background-color:#FFF;
+  position:absolute;
+  left:0;
+  top:0;
+  display:none;
+  z-index:90001;
+  padding:20px;
+  border:#000 solid 1px;
+}
+
+.windowB {
+   background-color:#FFF;
+  position:absolute;
+  left:0;
+  top:0;
+  display:none;
+  z-index:90003;
+  padding:20px;
+  border:#000 solid 1px;
+}
+
+p{
+	font-family:Calibri;
+	color:#234725;
+	margin:3px 0 0 0;
+}
+/*
+	FIM DE FUNÇÕES CSS DA MODAL
+*/
+/*
+	CONFIGURAÇÕES DE LARGURA
+*/
+.larguraA{
+	width:50px;	
+}
+.larguraB{
+	width:100px;	
+}
+.larguraC{
+	width:150px;	
+}
+.larguraD{
+	width:200px;	
+}
+.larguraE{
+	width:250px;	
+}
+.larguraF{
+	width:300px;	
+}
+.larguraG{
+	width:350px;	
+}
+.larguraH{
+	width:400px;	
+}
+.larguraJ{
+	width:500px;	
+}
+
+.larguraL{
+	width:600px;	
+}
+
+.espacamentoA{
+	margin:0px;
+	padding:0px 5px 0px 20px;
+}
+
+.espacamentoB{
+	margin:0px;
+	padding:0px 5px 0px 40px;
+}
+
+.espacamentoC{
+	margin:0px;
+	padding:0px 5px 0px 60px;
+}
+/*
+	FIM CONFIGURAÇÕES DE LARGURA
+*/
+/* 
+	CONFIGURAÇÃO DAS FLUTUAÇÕES 
+*/
+.floatLeft{
+	float:left;	
+	margin-left:5%;
+}
+.floatRight{
+	float:right;
+}
+.floatRightMargin{
+	float:right;
+	margin-right:5%;
+}
+.clear{
+	clear:both;	
+}
+span{
+	font-size:1.20em;
+}
+/* 
+	FIM CONFIGURAÇÃO DAS FLUTUAÇÕES 
+*/
+/*
+	CONFIGURAÇÃO DAS TABELAS
+
+table{
+
+}
+
+thead{
+	background-color:#DDD;	
+	font:14px Calibri;
+	color:#234725;
+}
+
+tbody{
+	background-color:#DDD;
+	font:14px Calibri;
+	color:#234725;
+}
+
+tfoot{
+	background-color:#DDD;
+	font:14px Calibri;	
+	font-family:Calibri;
+	color:#234725;
+}
+
+tr{
+	font-family:Calibri;
+	color:#000;
+}
+
+th{
+	padding:2px 4px 2px 3px;	
+}
+
+td{
+	padding:2px 4px 2px 3px;	
+}
+/*
+	FIM CONFIGURAÇÃO DAS TABELAS
+*/
+/*
+	FUNÇÕES CSS DO JALERT
+*/
+#popup_container {
+	font-family: Calibri;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #FFF;
+	border: solid 5px #999;
+	color: #000;
+	border-radius: 5px;
+	z-index:9999;
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.75em;
+	color: #666;
+	background: #CCC url(../img/title.gif) top repeat-x;
+	border: solid 1px #FFF;
+	border-bottom: solid 1px #999;
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+}
+
+#popup_content {
+	background: 1em 1em no-repeat url(../img/info.gif);
+	padding: 1em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(../img/important.gif);
+	background-position:right;
+	margin-right:20px;
+}
+
+#popup_content.confirm {
+	background-image: url(../img/info.gif);
+	background-position:right;
+	margin-right:20px;
+}
+
+#popup_content.prompt {
+	background-image: url(../img/help.gif);
+	background-position:right;
+	margin-right:20px;
+}
+
+#popup_message {
+	padding-left: 10px;
+	padding-right: 25px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+/*
+	FIM DE FUNÇÕES CSS DO JALERT
+*/
+/* FUNÇÔES DO CALENDARIO*/
+div.calendario {
+	width: 156px;
+	position: absolute;
+	background: #EEE repeat-y right;
+	border-left: 1px solid #f6f6f6;
+	border-top: 1px solid #f6f6f6;	
+	display: none;
+	z-index:99999!important;
+}
+
+div.calendario a.fechar {
+	display: block;
+	position: absolute;
+	top: -19px;
+	right: 0px;
+	height: 18px;
+	text-decoration: none;
+	background: #fff;
+	width: 20px;
+	text-align:center;
+	line-height: 18px;
+	color: #000;
+	font:bold 12px Tahoma;
+}
+
+div.calendario a.bt_controle_mes {
+	display: block;
+	height: 15px;
+	position: absolute;
+	top: 0px;
+	vertical-align: middle;
+	text-decoration: none;
+	color:#222;
+	line-height:15px;
+	vertical-align: middle;	
+}
+
+div.calendario a.bt_voltar_mes { left: 2px; }
+div.calendario a.bt_avancar_mes { right: 2px; }
+
+div.calendario p.nome_mes {
+	text-align: center;
+	display: block;
+	height: 18px;
+	background: #efeff0;
+	font-size: 12px;
+	font-weight: bold;
+	color: #6d6d6d;
+	line-height:18px;
+	vertical-align: middle;
+	margin: 0;
+}
+
+div.calendario ul {
+	margin:0;
+	padding:0;
+}
+div.calendario ul li {
+	display: block;
+	float: left;
+	width: 22px;
+	height: 17px;
+	text-align: center;
+	font-size: 11px;
+	line-height: 17px;
+	vertical-align: middle;
+}
+
+div.calendario ul li a { font-weight: bold; color:#6d6d6d; text-decoration:none; }
+div.calendario ul li a:hover { text-decoration: underline; }
+
+div.calendario ul li.semana {
+	background: #c0c7ca;
+	font-weight: bold;		
+	color: #fff;
+}
+
+div.calendario ul li.dia {
+	color: #999;
+}
+
+div.calendario ul li.default {	
+	background: #ececed;
+	color: #f00; 
+	font-weight: bold;
+}
+
+div.calendario ul li.default a { color: #f00; }
+
+div.exemplo { margin-bottom: 150px; }
+/*FIM FUNCOES DO CALENDARIO*/
+/*FUNÇOES DO BALAO*/
+#bubble_tooltip{
+	width:147px;
+	position:absolute;
+	display:none;
+}
+#bubble_tooltip .bubble_top{
+	background-image: url('../img/bubble_top.gif');
+	background-repeat:no-repeat;
+	height:16px;	
+}
+#bubble_tooltip .bubble_middle{
+	background-image: url('../img/bubble_middle.gif');
+	background-repeat:repeat-y;	
+	background-position:bottom left;
+	padding-left:7px;
+	padding-right:7px;
+}
+#bubble_tooltip .bubble_middle span{
+	position:relative;
+	top:-8px;
+	font-family: Calibri;
+	font-size:11px;
+	color:#234725;
+}
+#bubble_tooltip .bubble_bottom{
+	background-image: url('../img/bubble_bottom.gif');
+	background-repeat:no-repeat;
+	background-repeat:no-repeat;	
+	height:44px;
+	position:relative;
+	top:-6px;
+}
+/*FIM FUNCOES DO BALAO*/
+/*NOVO BALÃO*/
+.tip {
+    color: #234725;
+    background:#cfc;
+    display:none; /*--Hides by default--*/
+    padding:5px;
+    position:absolute;    
+	 z-index:1000;
+    border-radius: 3px;
+	 max-width:90%;
+}
+
+/*FIM NOVO BALÃO*/
+/*ESTILIZANDO BARRA DE COLAGEM*/
+
+/*FIM BARRA DE ROLAGEM*/

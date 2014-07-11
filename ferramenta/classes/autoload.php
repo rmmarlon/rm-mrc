@@ -1,0 +1,17 @@
+<?php
+   /*
+            Autor : Leandro Ferreira Marcelli
+             Data : 01/08/2012
+
+          Arquivo : autoload.php
+        Descrição : carregamento automatico de classes
+
+       Data        Responsável         Breve definição
+       ==========  ==================  ==================================================
+       01/08/2012  Leandro F Marcelli  Definição inicial
+   */
+	
+	function __autoload($class_name){
+   	require_once $class_name . '.php';
+	}
+?>

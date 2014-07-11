@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cursos>
+	<curso id="1">
+	 	<nome requisito="logica"> PHP Basico</nome>
+	 	<linguagem>PHP</linguagem>
+	</curso>
+	<curso id="2">
+	 	<nome requisito="logica"> HTML Basico</nome>
+	 	<linguagem>HTML</linguagem>
+	</curso>
+	<curso id="3">
+	 	<nome requisito="logica"> Javascript Basico</nome>
+	 	<linguagem>Javascript</linguagem>
+	</curso>
+	<curso id="4">
+	 	<nome requisito="logica"> Javascript Avançado</nome>
+	 	<linguagem>Javascript</linguagem>
+	</curso>
+</cursos>

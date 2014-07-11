@@ -1,0 +1,488 @@
+﻿@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0; 
+	padding:0;
+}
+a{
+	text-decoration:none;
+}
+html{
+	margin:0;
+	width:100%;
+	height:100%;
+}
+#areaLog{
+	background: -webkit-linear-gradient(#8da, #006633);
+	background: -moz-linear-gradient(#8da, #006633);
+	background: -ms-linear-gradient(#8da, #006633);
+	width:97.88%;
+	float:left;
+	padding: 0.5% 1%;
+	border-bottom:5px groove #DFDFDF;
+	border-left:1px groove #052;
+	border-right:1px groove #052;
+}
+#logChatmrc{
+	width:80%;
+	height:40px;
+	margin:auto;
+	float:left
+}
+.inpCampo{
+	width:80%;
+	margin-left:8%;
+	margin-top:2%;
+	border-radius:5px;
+	background:#063;
+	border:1px inset #363;
+	color:#FFF;
+	font-size:0.75em;
+}
+.inpCampo2{
+	width:50%;
+	text-align:right;
+	margin-left:20%;
+	margin-bottom:2%;
+	padding:1%;
+	border-radius:5px;
+	background:#063;
+	border:1px inset #363;
+	color:#FFF;
+}
+#visualiza_senha{
+	display:none;
+	position:absolute; 
+	top:61%; 
+	right:14%;
+	width:8%;
+	height:19%;
+}
+h1{
+	width:100%;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	text-align:center;
+	color:#FFF;
+}
+.labelForm{
+	text-align: right;
+	width:150px;
+	float:left;
+	color:#BaBa6a;
+	font-size:0.85em;
+	font-family:Verdana, Geneva, sans-serif;
+}
+.labelFormMenor{
+	text-align: left;
+	margin-left:8%;
+	color:#FFF;
+	width:30%;
+	font-size:0.75em;
+	float:left;
+	font-family:Verdana, Geneva, sans-serif;
+}
+.labelFormMenor:hover{
+	text-shadow: 0 0 10px rgba(0,70,20,1);
+}
+.floatLeft{
+	float:left;	
+}
+.floatRight{
+	float:right	
+}
+.clear{
+	clear:both;	
+}
+img{
+	border:0;	
+}
+#btnLogin{
+	margin-right:5%;
+	padding:0.3% 0.5%;
+	border-radius:5px;
+	color:#FFF;
+	font-size:0.75em;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.25);
+	background: -webkit-linear-gradient(#7a7, #063);
+	background: -moz-linear-gradient(#7a7, #063);
+	background: -ms-linear-gradient(#7a7, #063);
+	border-top:2px solid #9c9;
+	border-left:1px solid #063;
+	border-right:1px solid #063;
+	border-bottom:1px solid #063;
+}
+#btnCadastrar{
+	float:right;
+	font-family:Verdana, Geneva, sans-serif;
+	border-radius:3px;
+	padding:0.3% 0.5%;
+	border-radius:5px;
+	color:#FFF;
+	font-size:0.75em;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.25);
+	background: -webkit-linear-gradient(#7a7, #063);
+	background: -moz-linear-gradient(#7a7, #063);
+	background: -ms-linear-gradient(#7a7, #063);
+	border-top:2px solid #9c9;
+	border-left:1px solid #063;
+	border-right:1px solid #063;
+	border-bottom:1px solid #063;
+}
+#btnCadastrar2{
+	float:right;
+	font-family:Verdana, Geneva, sans-serif;
+	border-radius:3px;
+	margin-right:2%;
+	padding:1%;
+	border-radius:5px;
+	color:#FFF;
+	font-size:0.75em;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.25);
+	background: -webkit-linear-gradient(#7a7, #063);
+	background: -moz-linear-gradient(#7a7, #063);
+	background: -ms-linear-gradient(#7a7, #063);
+	border-top:2px solid #9c9;
+	border-left:1px solid #063;
+	border-right:1px solid #063;
+	border-bottom:1px solid #063;
+}
+#btnCadastrar:hover, #btnCadastrar2:hover, #btnLogin:hover, #popup_ok:hover{
+	background: #7a7;
+	cursor:pointer;
+	border-top:2px solid #9c9;
+	border-left:none;
+	border-right:none;
+	border-bottom:none;
+	box-shadow:2px 2px 2px #063;
+}
+#slide{
+	height:100%; 
+	width:100%;
+	overflow:hidden;
+}
+#paginacao{
+	margin-top:1.5%;
+	float:left;
+}
+#nav{
+	margin:auto;
+}
+#nav a { 
+	border: 1px solid #ccc; 
+	background: #7aC;
+	color:#FFF;
+	font-family:verdana;
+	font-size:0.80em;
+	text-decoration: none; 
+	margin: 0 2%; 
+	padding:1% 4%;  
+}
+#nav a.activeSlide { 
+	background: #158;
+	border: 1px solid #66F;
+	opacity:1.0;
+}
+#nav a:focus { 
+	outline: none; 
+}
+#nav a:hover{
+	border-radius:3px;
+	background: #158;
+	border: 1px solid #66F;
+}
+.slidIma{
+	width:100%;
+	height:100%;
+}
+/*----------------------------------------- */
+
+
+.audioEnvio, .audio_alerta{
+	display:none;
+}
+/*
+	FUNÇÕES CSS DO JALERT
+*/
+#popup_container {
+	font-family: Calibri;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #0c6;
+	color: #FFF;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	z-index:9999;
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.75em;
+	border-radius:5px 5px 0 0;
+	color: #FFF;
+	background: #0c6;
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+}
+#popup_ok{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:0.80em;
+	padding:3px 8px;
+	border-radius:5px;
+	color:#FFF;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.25);
+	background: -webkit-linear-gradient(#7a7, #063);
+	background: -moz-linear-gradient(#7a7, #063);
+	background: -ms-linear-gradient(#7a7, #063);
+	border-top:2px solid #9c9;
+	border-left:1px solid #063;
+	border-right:1px solid #063;
+	border-bottom:1px solid #063;
+}
+#popup_content {
+	background: 1em 1em no-repeat url(../img/info.gif);
+	padding: 1em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(../img/alert-blue.png);
+}
+
+#popup_content.confirm {
+	background-image: url(../img/info.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(../img/help.gif);
+}
+
+#popup_message {
+	padding-left: 48px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+/*
+	FIM DE FUNÇÕES CSS DO JALERT
+*/
+/* FUNÇÔES DO CALENDARIO*/
+div.calendario {
+	width: 156px;
+	position: absolute;
+	background: #EEE repeat-y right;
+	border-left: 1px solid #f6f6f6;
+	border-top: 1px solid #f6f6f6;	
+	display: none;
+	z-index:99999!important;
+}
+
+div.calendario a.fechar {
+	display: block;
+	position: absolute;
+	top: -19px;
+	right: 0px;
+	height: 18px;
+	text-decoration: none;
+	background: #fff;
+	width: 20px;
+	text-align:center;
+	vertical-align: center;
+	line-height: 18px;
+	color: #000;
+	font:bold 12px Tahoma;
+}
+
+div.calendario a.bt_controle_mes {
+	display: block;
+	height: 15px;
+	position: absolute;
+	top: 0px;
+	vertical-align: middle;
+	text-decoration: none;
+	color:#222;
+	line-height:15px;
+	vertical-align: middle;	
+}
+
+div.calendario a.bt_voltar_mes { left: 2px; }
+div.calendario a.bt_avancar_mes { right: 2px; }
+
+div.calendario p.nome_mes {
+	text-align: center;
+	display: block;
+	height: 18px;
+	background: #efeff0;
+	font-size: 12px;
+	font-weight: bold;
+	color: #6d6d6d;
+	line-height:18px;
+	vertical-align: middle;
+	margin: 0;
+}
+
+div.calendario ul {
+	margin:0;
+	padding:0;
+}
+div.calendario ul li {
+	display: block;
+	float: left;
+	width: 22px;
+	height: 17px;
+	text-align: center;
+	font-size: 11px;
+	line-height: 17px;
+	vertical-align: middle;
+}
+
+div.calendario ul li a { font-weight: bold; color:#6d6d6d; text-decoration:none; }
+div.calendario ul li a:hover { text-decoration: underline; }
+
+div.calendario ul li.semana {
+	background: #c0c7ca;
+	font-weight: bold;		
+	color: #fff;
+}
+
+div.calendario ul li.dia {
+	color: #999;
+}
+
+div.calendario ul li.default {	
+	background: #ececed;
+	color: #f00; 
+	font-weight: bold;
+}
+
+div.calendario ul li.default a { color: #f00; }
+
+div.exemplo { margin-bottom: 150px; }
+/*FIM FUNCOES DO CALENDARIO*/
+/*FUNÇOES DO BALAO*/
+#bubble_tooltip{
+	width:147px;
+	position:absolute;
+	display:none;
+}
+#bubble_tooltip .bubble_top{
+	background-image: url('../img/bubble_top.gif');
+	background-repeat:no-repeat;
+	height:16px;	
+}
+#bubble_tooltip .bubble_middle{
+	background-image: url('../img/bubble_middle.gif');
+	background-repeat:repeat-y;	
+	background-position:bottom left;
+	padding-left:7px;
+	padding-right:7px;
+}
+#bubble_tooltip .bubble_middle span{
+	position:relative;
+	top:-8px;
+	font-family: Calibri;
+	font-size:11px;
+	color:#234725;
+}
+#bubble_tooltip .bubble_bottom{
+	background-image: url('../img/bubble_bottom.gif');
+	background-repeat:no-repeat;
+	background-repeat:no-repeat;	
+	height:44px;
+	position:relative;
+	top:-6px;
+}
+/*FIM FUNCOES DO BALAO*/
+/*NOVO BALÃO*/
+.tip {
+    color: #234725;
+    background:#cfc;
+    display:none; /*--Hides by default--*/
+    padding:5px;
+    position:absolute;    
+	 z-index:1000;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	 max-width:90%;
+}
+
+/*FIM NOVO BALÃO*/
+
+/*media queries*/
+@media only screen and (max-width: 1024px){
+	#areaLog{
+		width:97.6%;
+	}
+	.floatLeft{
+		font-size:0.70em;
+		margin-right:1%;
+		width:20%;
+	}
+	.inpCampo{
+		width:60%;
+		margin:0;
+	}
+	.labelFormMenor{
+		float:left;
+		padding:0 5%;
+	}
+	#btnLogin{
+		float:left;
+		font-size:0.65em;
+	}
+	#btnCadastrar{
+		font-size:0.65em;
+	}
+	#logChatmrc{
+		width:90%;
+		height:20px;
+	}
+	#visualiza_senha{
+		display:none;
+		position:absolute; 
+		top:60%; 
+		left:52%;
+		width:7%;
+		height:20%;
+	}
+}
+@media only screen and (max-width: 520px){	
+	#areaLog{
+		width:97%;
+	}
+	.inpCampo{
+		font-size:0.70em;
+	}
+	#respons{
+		width:29%;
+		margin-top:1%;
+	}
+	#btnLogin{
+		margin:0;
+		float:left;
+		font-size:0.53em;
+	}
+	#btnCadastrar{
+		margin:0;
+		font-size:0.53em;
+	}
+	#visualiza_senha{
+		display:none;
+		position:absolute; 
+		top:60%; 
+		left:70%;
+		width:15%;
+		height:15%;
+	}
+}
